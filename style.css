@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: linear-gradient(to bottom, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+  --font-family: 'Kumbh Sans', sans-serif;
+  --font-size: 12px;
+  --dividers-color: hsl(240, 5%, 91%);
+  --dark-grayish-blue: hsl(240, 6%, 50%);
+  --darker-grayish-blue: hsl(237, 12%, 33%);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  min-height: 100vh;
+  background: var(--background-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+#card {
+  margin-top: 110px;
+  width: 325px;
+  min-height: 535px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+#card #illustration {
+  height: 120px;
+  padding-left: 15px;
+}
+
+#card #illustration #woman-svg {
+  position: relative;
+  top: -108px;
+}
+#card #illustration #shadow {
+  position: relative;
+  top: -200px;
+  left: 26px;
+}
+
+#card #faq {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 25px;
+}
+
+#card #faq h1 {
+  margin-bottom: 20px;
+  color: var(--darker-grayish-blue);
+  text-align: center;
+}
+
+#card #faq details {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--dividers-color);
+  color: var(--dark-grayish-blue);
+}
+#card #faq details > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+#card #faq details > p {
+  margin-top: 15px;
+}
+
+#card #faq details[open] span {
+  color: var(--darker-grayish-blue);
+  font-weight: bold;
+}
+#card #faq details[open] img{
+  transform: rotate(180deg);
+}

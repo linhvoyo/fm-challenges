@@ -16,53 +16,88 @@
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 15px;
   min-height: 100vh;
+  /* background: black; */
   background: var(--background-color);
   font-family: var(--font-family);
   font-size: var(--font-size);
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.fill-parent {
+  width: 100%;
+  height: 100%;
+}
+
+/* PAGE STYLES */
+
+#desktop {
+  position: absolute;
+  top: -4px;
+  left: -65px;
+  opacity: 80%;
+}
+
 #card {
-  margin-top: 110px;
-  width: 325px;
-  min-height: 535px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 110px;  
+  width: 920px;
   background-color: white;
-  border-radius: 20px;
+  border-radius: 25px;
+}
+
+#card #illustration .mobile {
+  display: none;
 }
 
 #card #illustration {
-  height: 120px;
-  padding-left: 15px;
+  width: 50%;
+  height: 510px;
 }
-
-#card #illustration #woman-svg {
+#card #illustration .desktop #woman-svg {
   position: relative;
-  top: -108px;
+  top: 70px;
+  left: -85px;
+  z-index: 1;
 }
-#card #illustration #shadow {
+#card #illustration .desktop #shadow {
   position: relative;
-  top: -200px;
-  left: 26px;
+  top: -658px;
+  left: -561px;
+  width: 950px;
+  height: 950px;
+}
+#card #illustration #box {
+  position: relative;
+  top: -1111px;
+  left: -92px;
+  z-index: 2;
 }
 
 #card #faq {
+  margin: 0 90px 0 0;
+  min-height: 510px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 25px;
+  width: 50%;
+  padding: 70px 17px;
 }
 
 #card #faq h1 {
-  margin-bottom: 20px;
+  font-size: 2.7em;
   color: var(--darker-grayish-blue);
-  text-align: center;
+  margin-bottom: 25px;
 }
 
 #card #faq details {
-  padding: 15px 0;
+  padding: 17px 0;
   border-bottom: 1px solid var(--dividers-color);
   color: var(--dark-grayish-blue);
 }
@@ -70,10 +105,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
   list-style: none;
+  font-size: 14px;
+}
+#card #faq details img {
+  margin: 4px;
 }
 #card #faq details > p {
   margin-top: 15px;
+  line-height: 1.3em;
 }
 
 #card #faq details[open] span {
@@ -83,3 +124,30 @@ body {
 #card #faq details[open] img{
   transform: rotate(180deg);
 }
+
+/* 
+@media (max-width: 1025px) {
+  #card #illustration.mobile {
+    display: block;
+    height: 120px;
+    padding-left: 15px;
+  }
+  
+  #card #illustration.mobile #woman-svg {
+    position: relative;
+    top: -108px;
+  }
+  #card #illustration.mobile #shadow {
+    position: relative;
+    top: -200px;
+    left: 26px;
+  }
+
+  #card #faq {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 25px;
+  }
+  
+} */

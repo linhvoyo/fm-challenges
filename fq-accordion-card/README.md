@@ -12,7 +12,9 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Hide/Show the answer to a question when the question is clicked
 
-### Screenshot
+### Solution
+
+- [Live Site URL]("https://linhvoyo.github.io/fm-challenges/fq-accordion-card/index.html")
 
 - Desktop solution
 
@@ -21,12 +23,6 @@ Users should be able to:
 - Mobile solution
 
 <img src="./design/mobile-solution.png" width="25%" height="25%">
-
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## Built with
 

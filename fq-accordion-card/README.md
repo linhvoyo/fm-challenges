@@ -14,7 +14,7 @@ Users should be able to:
 
 ### Solution
 
-- [Live Site URL]("https://linhvoyo.github.io/fm-challenges/fq-accordion-card/index.html")
+- [Live Site URL](https://linhvoyo.github.io/fm-challenges/fq-accordion-card/index.html)
 
 - Desktop solution
 

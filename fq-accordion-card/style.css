@@ -60,6 +60,7 @@ body {
   width: 920px;
   background-color: white;
   border-radius: 25px;
+  box-shadow: 0 40px 30px -20px rgb(0 0 0 / 30%);
 }
 
 #card #illustration .mobile {

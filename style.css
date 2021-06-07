@@ -5,8 +5,12 @@
 }
 
 :root {
-  --background-color: linear-gradient(to bottom, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
-  --font-family: 'Kumbh Sans', sans-serif;
+  --background-color: linear-gradient(
+    to bottom,
+    hsl(273, 75%, 66%),
+    hsl(240, 73%, 65%)
+  );
+  --font-family: "Kumbh Sans", sans-serif;
   --font-size: 12px;
   --dividers-color: hsl(240, 5%, 91%);
   --dark-grayish-blue: hsl(240, 6%, 50%);
@@ -14,28 +18,27 @@
 }
 
 body {
+  background: var(--background-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+.main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
   min-height: 100vh;
-  background: var(--background-color);
-  font-family: var(--font-family);
-  font-size: var(--font-size);
 }
 
-.overflow-hidden {
+.hide-overflow {
+  height: 100%;
+  position: relative;
   overflow: hidden;
 }
 
-.fill-parent {
-  width: 100%;
-  height: 100%;
-}
-
 /* PAGE STYLES */
-
 #desktop {
   position: absolute;
   top: -4px;
@@ -50,11 +53,10 @@ body {
   opacity: 80%;
 }
 
-
 #card {
   display: flex;
   flex-direction: row;
-  margin-top: 110px;  
+  margin-top: 110px;
   width: 920px;
   background-color: white;
   border-radius: 25px;
@@ -66,25 +68,28 @@ body {
 
 #card #illustration {
   width: 50%;
-  height: 510px;
+}
+#card #illustration .desktop {
+  position: relative;
+  height: 100%;
 }
 #card #illustration .desktop #woman-svg {
-  position: relative;
+  position: absolute;
   top: 70px;
   left: -85px;
   z-index: 1;
 }
 #card #illustration .desktop #shadow {
-  position: relative;
-  top: -658px;
+  position: absolute;
+  top: -300px;
   left: -561px;
   width: 950px;
   height: 950px;
 }
 #card #illustration #box {
-  position: relative;
-  top: -1111px;
-  left: -92px;
+  position: absolute;
+  top: 205px;
+  left: -93px;
   z-index: 2;
 }
 
@@ -94,7 +99,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
-  padding: 70px 17px;
+  padding: 70px 17px 70px 64px;
 }
 
 #card #faq h1 {
@@ -128,12 +133,22 @@ body {
   color: var(--darker-grayish-blue);
   font-weight: bold;
 }
-#card #faq details[open] img{
+#card #faq details[open] img {
   margin: 0 2px 4px 2px;
   transform: rotate(180deg);
 }
 
+.attribution {
+  margin: 15px;
+  font-size: 11px;
+  text-align: center;
+}
 
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* For mobile */
 @media (max-width: 1025px) {
   #card {
     flex-direction: column;
@@ -153,7 +168,7 @@ body {
     height: 120px;
     padding-left: 10px;
   }
-  
+
   #card #illustration .mobile #woman-svg {
     position: relative;
     top: -108px;

@@ -4,12 +4,15 @@ import './App.css';
 import IPMap from './components/IPMap';
 
 class App extends React.Component {
+  state = {
+    IPS: [],
+  }
 
   componentDidMount = async () => {
-    const ip = '24.48.0.1';
+    // const ip = '24.48.0.1';
+    const ip = '98.37.137.65';
     const location = await this.searchIp(ip);
-    console.log(location);
-    console.log(process.env.IP_TRACKER_KEY)
+    this.setState((prevState) => ({ IPS: [...prevState.IPS, location] }));
   }
 
   searchIp = async (ip) => {
@@ -22,7 +25,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <input></input>
-        <IPMap />
+        {this.state.IPS.length ? <IPMap IPS={this.state.IPS}/> : null}
       </div>
     )
   }

@@ -1,12 +1,16 @@
 import React from 'react';
-import './App.css';
 
+import './App.css';
 import IPMap from './components/IPMap';
 import DisplayIPInfo from './components/DisplayIPInfo';
 
 class App extends React.Component {
-  state = {
-    IPS: [],
+  constructor() {
+    super();
+
+    this.state = {
+      IPS: [],
+    };
   }
 
   componentDidMount = async () => {
@@ -19,24 +23,25 @@ class App extends React.Component {
   searchIp = async (ip) => {
     const api = 'http://ip-api.com/json';
     return fetch(`${api}/${ip}`)
-      .then(response => response.json());
+      .then((response) => response.json());
   }
 
   render() {
     console.log(this.state);
-    const [ip] = this.state.IPS;
+    const { IPS, IPS: [ip] } = this.state;
     return (
       <div className="App">
-        <input></input>
-        {!this.state.IPS.length ? null
-          : <React.Fragment>
-            <DisplayIPInfo ip={ip} />
-            <IPMap IPS={this.state.IPS} />
-          </React.Fragment>
-        }
+        <input />
+        {!IPS.length ? null
+          : (
+            <>
+              <DisplayIPInfo ipQuery={ip} />
+              <IPMap IPS={IPS} />
+            </>
+          )}
       </div>
-    )
+    );
   }
-};
+}
 
 export default App;

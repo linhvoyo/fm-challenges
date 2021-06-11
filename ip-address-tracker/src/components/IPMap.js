@@ -1,5 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
-
 
 const Location = ({ text }) => <div>{text}</div>;
 
@@ -14,7 +15,7 @@ function IPMap(props) {
   // };
 
   const zoom = 13;
-  const [ip] = props.IPS
+  const { IPS: [ip] } = props;
   const { lat, lon: lng, query } = ip;
   return (
     <div style={{ height: '100vh', width: '100%' }}>
@@ -24,8 +25,21 @@ function IPMap(props) {
       >
         <Location lat={lat} lng={lng} text={query} />
       </GoogleMapReact>
-    </div >
-  )
+    </div>
+  );
 }
 
 export default IPMap;
+
+Location.propTypes = {
+  text: PropTypes.string.isRequired,
+};
+
+IPMap.propTypes = {
+  IPS: PropTypes.arrayOf({
+    ip: PropTypes.shape({
+      lat: PropTypes.number.isRequired,
+      lon: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
+};

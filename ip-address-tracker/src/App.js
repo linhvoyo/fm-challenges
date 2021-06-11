@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import IPMap from './components/IPMap';
+import DisplayIPInfo from './components/DisplayIPInfo';
 
 class App extends React.Component {
   state = {
@@ -22,10 +23,17 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state);
+    const [ip] = this.state.IPS;
     return (
       <div className="App">
         <input></input>
-        {this.state.IPS.length ? <IPMap IPS={this.state.IPS}/> : null}
+        {!this.state.IPS.length ? null
+          : <React.Fragment>
+            <DisplayIPInfo ip={ip} />
+            <IPMap IPS={this.state.IPS} />
+          </React.Fragment>
+        }
       </div>
     )
   }

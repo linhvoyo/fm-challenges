@@ -1,0 +1,17 @@
+.DisplayIPInfo {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  width: 1100px;
+  height: 160px;
+  border-radius: 20px;
+  padding: 2em;
+  border: 1px solid black;
+}
+
+.DisplayIPInfo .ipInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+}

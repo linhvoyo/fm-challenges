@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 import './DisplayIPInfo.css';
 
+import desktopDesign from '../asset/design/desktop-design.jpg';
+
 const IPInfo = ({ header, data }) => (
   <div className="ipInfo">
-    <span>{header}</span>
-    <span>{data}</span>
+    <span className="title">{header}</span>
+    <span className="content">{data}</span>
   </div>
 );
 
@@ -17,13 +19,22 @@ const DisplayIPInfo = ({ ipQuery }) => {
     timezone: ip.timezone,
     isp: ip.isp,
   });
-
   const ipData = parseIP(ipQuery);
+  // const ipData = {
+  //   'ip address': '192.212.174.101',
+  //   location: 'Brooklyn, NY 10001',
+  //   timezone: 'UTC -05:00',
+  //   isp: 'SpaceX Starlink',
+  // };
 
+  // ipData.timezone = 'UTC -05:00';
   return (
-    <div className="DisplayIPInfo">
-      {Object.keys(ipData).map((ip) => <IPInfo key={ip} header={ip} data={ipData[ip]} />)}
-    </div>
+    <>
+      <div className="DisplayIPInfo">
+        {Object.keys(ipData).map((ip) => <IPInfo key={ip} header={ip} data={ipData[ip]} />)}
+      </div>
+      <img id="desktop" src={desktopDesign} alt="desktop-design preview" />
+    </>
   );
 };
 

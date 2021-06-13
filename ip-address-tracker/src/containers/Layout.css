@@ -9,6 +9,12 @@
   left: 0;
 }
 
+#mobile {
+  display: none;
+  position: absolute;
+  opacity: 80%;;
+}
+
 .Layout {
   height: 100vh;
   position: relative;
@@ -32,4 +38,10 @@
   font-weight: 700;
   font-size: 1.9rem;
   color: white;
+}
+
+@media (max-width: 880px) {
+  .Layout .header span {
+    font-size: 1.5rem;
+  }
 }

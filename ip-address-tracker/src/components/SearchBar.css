@@ -2,9 +2,10 @@
   display: flex;
   border-radius: 15px;
   overflow: hidden;
-  width: 555px;
+  max-width: 555px;
+  width: calc(100vw - 25px - 25px);
   height: 60px;
-  margin: -1px 0 45px 0;
+  margin: -1px 25px 45px 25px;
 }
 
 .SearchBar input {

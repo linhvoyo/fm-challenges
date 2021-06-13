@@ -5,10 +5,11 @@
   position: absolute;
   top: 200px;
   z-index: 1;
-  width: 1110px;
+  max-width: 1110px;
   min-height: 160px;
   border-radius: 15px;
   padding: 35px 0;
+  margin: 0 25px;
   background-color: white;
 }
 
@@ -37,4 +38,27 @@
   font-weight: 500;
   font-size: 25px;
   letter-spacing: 0.02rem;
+}
+
+@media (max-width: 880px) {
+  .DisplayIPInfo {
+    min-width: unset;
+    max-width: 555px;
+    width: calc(100vw - 25px - 25px);
+    top: 170px;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 30px 5px 30px;
+  }
+  .DisplayIPInfo .ipInfo {
+    margin-bottom: 20px;
+    border: 0;
+  }
+  .DisplayIPInfo .ipInfo .title {
+    font-size: 10px;
+  }
+  .DisplayIPInfo .ipInfo .content {
+    font-size: 20px;
+    margin: 5px;
+  }
 }

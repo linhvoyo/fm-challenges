@@ -4,35 +4,23 @@ import GoogleMapReact from 'google-map-react';
 
 import './IPMap.css';
 
-const Location = ({ text }) => (
-  <div className="LocationPin">
-    <div className="pin" />
-    <span>{text}</span>
-  </div>
-);
+const Location = () => <div className="pin" />;
 
 function IPMap(props) {
-  // const center = {
-  //   lat: 59.95,
-  //   lng: 30.33,
-  // };
-  // const center = {
-  //   lat: 37.3372,
-  //   lng: -121.798,
-  // };
-
-  console.log(props);
   const zoom = 15;
   const { ips: [ip] } = props;
-  const { lat, lon: lng, query } = ip;
+  const { lat, lon: lng } = ip;
   return (
     <div className="IPMap">
       <div style={{ height: '100%', width: '100%' }}>
         <GoogleMapReact
+          bootstrapURLKeys={{ key: process.env.REACT_APP_MAP_API_KEY }}
           center={{ lat, lng }}
           defaultZoom={zoom}
+          options={{ fullscreenControl: false, zoomControl: false }}
+          yesIWantToUseGoogleMapApiInternals
         >
-          <Location lat={lat} lng={lng} text={query} />
+          <Location lat={lat} lng={lng} />
         </GoogleMapReact>
       </div>
     </div>
@@ -40,10 +28,6 @@ function IPMap(props) {
 }
 
 export default IPMap;
-
-Location.propTypes = {
-  text: PropTypes.string.isRequired,
-};
 
 IPMap.propTypes = {
   ips: PropTypes.arrayOf(PropTypes.shape({

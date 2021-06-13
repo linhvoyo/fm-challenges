@@ -11,21 +11,27 @@ const IPInfo = ({ header, data }) => (
 );
 
 const DisplayIPInfo = ({ ipQuery }) => {
-  const parseIP = (ip) => ({
-    'ip address': ip.query,
-    location: `${ip.city}, ${ip.region} ${ip.zip}`,
-    timezone: ip.timezone,
-    isp: ip.isp,
-  });
+  const parseIP = (ip) => {
+    const mins = ip.offset / 60;
+    const hourOffset = Math.floor(Math.abs(mins / 60)).toString().padStart(2, '0');
+    const minOffset = Math.abs(mins % 60).toString().padStart(2, '0');
+    const sign = mins < 0 ? '-' : '';
+
+    return {
+      'ip address': ip.query,
+      location: `${ip.city}, ${ip.region} ${ip.zip}`,
+      timezone: `UTC ${sign}${hourOffset}:${minOffset}`,
+      isp: ip.isp,
+    };
+  };
   const ipData = parseIP(ipQuery);
+  // parseIP(ipQuery);
   // const ipData = {
   //   'ip address': '192.212.174.101',
   //   location: 'Brooklyn, NY 10001',
   //   timezone: 'UTC -05:00',
   //   isp: 'SpaceX Starlink',
   // };
-
-  // ipData.timezone = 'UTC -05:00';
   return (
     <div className="DisplayIPInfo">
       {Object.keys(ipData).map((ip) => <IPInfo key={ip} header={ip} data={ipData[ip]} />)}
@@ -46,6 +52,7 @@ DisplayIPInfo.propTypes = {
     city: PropTypes.string.isRequired,
     region: PropTypes.string.isRequired,
     zip: PropTypes.string.isRequired,
+    offset: PropTypes.number.isRequired,
   }).isRequired,
 
 };

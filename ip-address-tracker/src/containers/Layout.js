@@ -8,6 +8,7 @@ import { searchIp } from '../api';
 import './Layout.css';
 
 import desktopDesign from '../asset/design/desktop-design.jpg';
+import mobileDesign from '../asset/design/mobile-design.jpg';
 
 class Layout extends React.Component {
   constructor() {
@@ -43,6 +44,7 @@ class Layout extends React.Component {
     return (
       <div className="Layout">
         <img id="desktop" src={desktopDesign} alt="desktop-design preview" />
+        <img id="mobile" src={mobileDesign} alt="desktop-design preview" />
         <div className="header">
           <span className="title">IP Address Tracker</span>
           <SearchBar onSearch={this.onSearchHandler} />

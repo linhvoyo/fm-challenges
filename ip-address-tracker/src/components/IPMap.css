@@ -3,9 +3,8 @@
   height: 100%;
 }
 
-.LocationPin .pin {
+.IPMap .pin {
   width: 60px;
   height: 60px;
-  background-image: url('../asset/images/icon-location.svg');
-  background-repeat: no-repeat;
+  background: no-repeat url('../asset/images/icon-location.svg');
 }

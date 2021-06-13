@@ -1,0 +1,34 @@
+.SearchBar {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 555px;
+  height: 60px;
+}
+
+.SearchBar input {
+  border: 0 transparent;
+  padding: 25px;
+  width: 100%;
+  height: 100%;
+  font-size: var(--text-input-size);
+  font-family: "Rubik", sans-serif;
+}
+.SearchBar input:focus {
+  outline: none;
+}
+
+.SearchBar button {
+  border: 0 transparent;
+  width: 63px;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: center;
+  background-image: url("../asset/images/icon-arrow.svg");
+  background-color: black;
+}
+.SearchBar button:hover {
+  cursor: pointer;
+  background-color: var(--very-dark-gray);
+}

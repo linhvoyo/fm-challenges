@@ -2,41 +2,51 @@ import React from 'react';
 
 import './App.css';
 import IPMap from './components/IPMap';
+import SearchBar from './components/SearchBar';
 import DisplayIPInfo from './components/DisplayIPInfo';
+
+import { searchIp } from './api';
 
 class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      IPS: [],
+      query: '',
+      ip: null,
     };
   }
 
   componentDidMount = async () => {
     // const ip = '24.48.0.1';
     const ip = '98.37.137.65';
-    const location = await this.searchIp(ip);
-    this.setState((prevState) => ({ IPS: [...prevState.IPS, location] }));
+
+    this.setIp(ip);
   }
 
-  searchIp = async (ip) => {
-    const api = 'http://ip-api.com/json';
-    return fetch(`${api}/${ip}`)
-      .then((response) => response.json());
+  setIp = async (ip) => {
+    const response = await searchIp(ip);
+    if (response.status === 'fail') return alert('Entered address is invalid please try again');
+    this.setState({ ip: response });
+    return response;
+  };
+
+  onSearchHandler = (e, textInput) => {
+    e.preventDefault();
+    return this.setIp(textInput);
   }
 
   render() {
     console.log(this.state);
-    const { IPS, IPS: [ip] } = this.state;
+    const { ip } = this.state;
     return (
       <div className="App">
-        <input />
-        {!IPS.length ? null
+        <SearchBar onSearch={this.onSearchHandler} />
+        {!ip ? null
           : (
             <>
               <DisplayIPInfo ipQuery={ip} />
-              <IPMap IPS={IPS} />
+              <IPMap ips={[ip]} />
             </>
           )}
       </div>

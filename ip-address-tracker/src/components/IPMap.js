@@ -14,8 +14,9 @@ function IPMap(props) {
   //   lng: -121.798,
   // };
 
+  console.log(props);
   const zoom = 13;
-  const { IPS: [ip] } = props;
+  const { ips: [ip] } = props;
   const { lat, lon: lng, query } = ip;
   return (
     <div style={{ height: '100vh', width: '100%' }}>
@@ -36,10 +37,8 @@ Location.propTypes = {
 };
 
 IPMap.propTypes = {
-  IPS: PropTypes.arrayOf({
-    ip: PropTypes.shape({
-      lat: PropTypes.number.isRequired,
-      lon: PropTypes.number.isRequired,
-    }),
-  }).isRequired,
+  ips: PropTypes.arrayOf(PropTypes.shape({
+    lat: PropTypes.number.isRequired,
+    lon: PropTypes.number.isRequired,
+  })).isRequired,
 };

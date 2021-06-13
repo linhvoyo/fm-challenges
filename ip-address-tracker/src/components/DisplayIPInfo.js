@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import './DisplayIPInfo.css';
 
-import desktopDesign from '../asset/design/desktop-design.jpg';
-
 const IPInfo = ({ header, data }) => (
   <div className="ipInfo">
     <span className="title">{header}</span>
@@ -29,12 +27,9 @@ const DisplayIPInfo = ({ ipQuery }) => {
 
   // ipData.timezone = 'UTC -05:00';
   return (
-    <>
-      <div className="DisplayIPInfo">
-        {Object.keys(ipData).map((ip) => <IPInfo key={ip} header={ip} data={ipData[ip]} />)}
-      </div>
-      <img id="desktop" src={desktopDesign} alt="desktop-design preview" />
-    </>
+    <div className="DisplayIPInfo">
+      {Object.keys(ipData).map((ip) => <IPInfo key={ip} header={ip} data={ipData[ip]} />)}
+    </div>
   );
 };
 

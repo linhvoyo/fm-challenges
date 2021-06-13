@@ -1,0 +1,11 @@
+.IPMap {
+  width: 100%;
+  height: 100%;
+}
+
+.LocationPin .pin {
+  width: 60px;
+  height: 60px;
+  background-image: url('../asset/images/icon-location.svg');
+  background-repeat: no-repeat;
+}

@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 
-const Location = ({ text }) => <div>{text}</div>;
+import './IPMap.css';
+
+const Location = ({ text }) => (
+  <div className="LocationPin">
+    <div className="pin" />
+    <span>{text}</span>
+  </div>
+);
 
 function IPMap(props) {
   // const center = {
@@ -15,17 +22,19 @@ function IPMap(props) {
   // };
 
   console.log(props);
-  const zoom = 13;
+  const zoom = 15;
   const { ips: [ip] } = props;
   const { lat, lon: lng, query } = ip;
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
-      <GoogleMapReact
-        defaultCenter={{ lat, lng }}
-        defaultZoom={zoom}
-      >
-        <Location lat={lat} lng={lng} text={query} />
-      </GoogleMapReact>
+    <div className="IPMap">
+      <div style={{ height: '100%', width: '100%' }}>
+        <GoogleMapReact
+          center={{ lat, lng }}
+          defaultZoom={zoom}
+        >
+          <Location lat={lat} lng={lng} text={query} />
+        </GoogleMapReact>
+      </div>
     </div>
   );
 }

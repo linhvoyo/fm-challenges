@@ -1,0 +1,35 @@
+#desktop {
+  display: none;
+  position: absolute;
+  align-self: center;
+  /* margin: auto; */
+  opacity: 80%;
+  /* top: -360px; */
+  /* top: -442px; */
+  left: 0;
+}
+
+.Layout {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Layout .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 450px;
+  background: url('../asset/images/pattern-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Layout .header span {
+  margin: 30px;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: white;
+}

@@ -1,10 +1,10 @@
 .IPMap {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 280px);
 }
 
 .IPMap .pin {
   width: 60px;
   height: 60px;
-  background: no-repeat url('../asset/images/icon-location.svg');
+  background: no-repeat url("../asset/images/icon-location.svg");
 }

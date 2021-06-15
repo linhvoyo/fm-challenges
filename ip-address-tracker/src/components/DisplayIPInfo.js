@@ -25,16 +25,11 @@ const DisplayIPInfo = ({ ipQuery }) => {
     };
   };
   const ipData = parseIP(ipQuery);
-  // parseIP(ipQuery);
-  // const ipData = {
-  //   'ip address': '192.212.174.101',
-  //   location: 'Brooklyn, NY 10001',
-  //   timezone: 'UTC -05:00',
-  //   isp: 'SpaceX Starlink',
-  // };
   return (
-    <div className="DisplayIPInfo">
-      {Object.keys(ipData).map((ip) => <IPInfo key={ip} header={ip} data={ipData[ip]} />)}
+    <div className="position-displayIpInfo">
+      <div className="DisplayIPInfo">
+        {Object.keys(ipData).map((ip) => <IPInfo key={ip} header={ip} data={ipData[ip]} />)}
+      </div>
     </div>
   );
 };

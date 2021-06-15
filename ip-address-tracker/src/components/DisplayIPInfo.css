@@ -1,10 +1,13 @@
+.position-displayIpInfo {
+  position: absolute;
+  top: 200px;
+  z-index: 1;
+}
+
 .DisplayIPInfo {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
-  position: absolute;
-  top: 200px;
-  z-index: 1;
   max-width: 1110px;
   min-height: 160px;
   border-radius: 15px;

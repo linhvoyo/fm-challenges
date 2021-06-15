@@ -18,7 +18,6 @@ function IPMap(props) {
           center={{ lat, lng }}
           defaultZoom={zoom}
           options={{ fullscreenControl: false, zoomControl: false }}
-          yesIWantToUseGoogleMapApiInternals
         >
           <Location lat={lat} lng={lng} />
         </GoogleMapReact>

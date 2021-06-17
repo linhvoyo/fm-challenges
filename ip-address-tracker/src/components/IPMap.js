@@ -4,6 +4,8 @@ import GoogleMapReact from 'google-map-react';
 
 import './IPMap.css';
 
+const { NODE_ENV } = process.env;
+
 const Location = () => <div className="pin" />;
 
 function IPMap(props) {
@@ -14,7 +16,8 @@ function IPMap(props) {
     <div className="IPMap">
       <div style={{ height: '100%', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.REACT_APP_MAP_API_KEY }}
+          bootstrapURLKeys={NODE_ENV === 'development' ? null
+            : { key: process.env.REACT_APP_MAP_API_KEY }}
           center={{ lat, lng }}
           defaultZoom={zoom}
           options={{ fullscreenControl: false, zoomControl: false }}

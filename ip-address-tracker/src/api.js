@@ -1,4 +1,5 @@
-const searchIp = async (ip) => {
+// eslint-disable-next-line import/prefer-default-export
+export async function searchIp(ip) {
   /* Search for IPv4/IPv6 address. If ip not supplied the current IP address will be used */
   const api = 'http://ip-api.com/json';
   const fields = [
@@ -22,8 +23,4 @@ const searchIp = async (ip) => {
 
   return fetch(`${api}/${ip || ''}?fields=${fields.join(',')}`)
     .then((response) => response.json());
-};
-
-module.exports = {
-  searchIp,
-};
+}

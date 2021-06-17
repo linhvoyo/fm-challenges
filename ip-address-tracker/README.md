@@ -20,7 +20,7 @@ Users should be able to:
 - Flexbox
 - [React](https://reactjs.org/) - JS library
 - [Google Map React](https://github.com/google-map-react/google-map-react)
-- [ip-api](https://ip-api.com/)
+- [https://ipgeolocation.io/](https://ipgeolocation.io/)
 
 Refer to [React-README.md](README-React.md) to start app locally.
 

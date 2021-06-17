@@ -24,5 +24,5 @@ Solutions to challenges from [Frontend Mentor](https://www.frontendmentor.io/cha
   <img src="./ip-address-tracker/src/asset/design/desktop-solution.png" width="50%" height="50%">
 
 - [Project Details](https://github.com/linhvoyo/fm-challenges/tree/main/ip-address-tracker)
-- [Live solution link](https://linhvoyo.github.io/fm-challenges/ip-addresss-tracker/build/index.html)
+- [Live solution link](https://linhvoyo.github.io/fm-challenges/ip-address-tracker/build/index.html)
 </details>

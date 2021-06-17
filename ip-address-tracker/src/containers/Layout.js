@@ -20,9 +20,10 @@ class Layout extends React.Component {
 
   setIp = async (ip) => {
     const response = await searchIp(ip);
+    const resJson = await response.json();
     // eslint-disable-next-line no-alert
-    if (response.status === 'fail') return alert(`An error has occured: ${response.message}\nPlease try again`);
-    this.setState({ ip: response });
+    if (response.status !== 200) return alert(`An error has occured: ${resJson.message}\n\nPlease try again`);
+    this.setState({ ip: resJson });
     return response;
   };
 

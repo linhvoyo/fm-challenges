@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './DisplayIPInfo.css';
+import getStateAbbreviation from '../utils/getStateAbbreviation';
 
 const IPInfo = ({ header, data }) => (
   <div className="ipInfo flex-by-column">
@@ -12,15 +13,13 @@ const IPInfo = ({ header, data }) => (
 
 const DisplayIPInfo = ({ ipQuery }) => {
   const parseIP = (ip) => {
-    const mins = ip.offset / 60;
-    const hourOffset = Math.floor(Math.abs(mins / 60)).toString().padStart(2, '0');
-    const minOffset = Math.abs(mins % 60).toString().padStart(2, '0');
-    const sign = mins < 0 ? '-' : '';
+    const sign = ip.time_zone.offset < 0 ? '-' : '';
+    const offset = Math.abs(ip.time_zone.offset).toString().padStart(2, '0');
 
     return {
-      'ip address': ip.query,
-      location: `${ip.city}, ${ip.region} ${ip.zip}`,
-      timezone: `UTC ${sign}${hourOffset}:${minOffset}`,
+      'ip address': ip.ip,
+      location: `${ip.city}, ${getStateAbbreviation(ip.state_prov)} ${ip.zipcode}`,
+      timezone: `UTC ${sign}${offset}:00`,
       isp: ip.isp,
     };
   };
@@ -43,11 +42,13 @@ IPInfo.propTypes = {
 
 DisplayIPInfo.propTypes = {
   ipQuery: PropTypes.shape({
-    query: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
-    region: PropTypes.string.isRequired,
-    zip: PropTypes.string.isRequired,
-    offset: PropTypes.number.isRequired,
+    state_prov: PropTypes.string.isRequired,
+    zipcode: PropTypes.string.isRequired,
+    time_zone: PropTypes.shape({
+      offset: PropTypes.number.isRequired,
+    }),
+    isp: PropTypes.string.isRequired,
   }).isRequired,
 
 };

@@ -11,7 +11,7 @@ function SearchBar({ onSearch }) {
   const placeholder = 'Search for any IP address or domain';
 
   return (
-    <form className="SearchBar" onSubmit={(e) => onSearch(e, textInput)}>
+    <form className="SearchBar flex-by-row" onSubmit={(e) => onSearch(e, textInput)}>
       <input
         onChange={inputHandler}
         placeholder={placeholder}

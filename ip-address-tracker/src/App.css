@@ -15,3 +15,13 @@
 .App {
   font-family: "Rubik", sans-serif;
 }
+
+.flex-by-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-by-row {
+  display: flex;
+  flex-direction: row;
+}

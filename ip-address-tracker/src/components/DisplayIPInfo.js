@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './DisplayIPInfo.css';
 
 const IPInfo = ({ header, data }) => (
-  <div className="ipInfo">
-    <span className="title">{header}</span>
-    <span className="content">{data}</span>
+  <div className="ipInfo flex-by-column">
+    <span className="ipInfo__title">{header}</span>
+    <span className="ipInfo__content">{data}</span>
   </div>
 );
 
@@ -26,7 +26,7 @@ const DisplayIPInfo = ({ ipQuery }) => {
   };
   const ipData = parseIP(ipQuery);
   return (
-    <div className="position-displayIpInfo">
+    <div className="DisplayIPInfo--position">
       <div className="DisplayIPInfo">
         {Object.keys(ipData).map((ip) => <IPInfo key={ip} header={ip} data={ipData[ip]} />)}
       </div>

@@ -1,36 +1,14 @@
-#desktop {
-  display: none;
-  position: absolute;
-  align-self: center;
-  /* margin: auto; */
-  opacity: 80%;
-  /* top: -360px; */
-  /* top: -442px; */
-  left: 0;
-}
-
-#mobile {
-  display: none;
-  position: absolute;
-  opacity: 80%;;
-}
-
 .Layout {
-  height: 100vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  position: relative;
+  height: 100vh;
 }
 
 .Layout .header {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   width: 100%;
   height: 280px;
-  background: url('../asset/images/pattern-bg.png');
-  background-repeat: no-repeat;
+  background: no-repeat url("../asset/images/pattern-bg.png");
   background-size: cover;
 }
 .Layout .header span {

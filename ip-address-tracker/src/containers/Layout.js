@@ -7,27 +7,20 @@ import DisplayIPInfo from '../components/DisplayIPInfo';
 import { searchIp } from '../api';
 import './Layout.css';
 
-import desktopDesign from '../asset/design/desktop-design.jpg';
-import mobileDesign from '../asset/design/mobile-design.jpg';
-
 class Layout extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      query: '',
-      ip: null,
-    };
+    this.state = { ip: null };
   }
 
   componentDidMount = async () => {
-    // const ip = '24.48.0.1';
-    // const ip = '98.37.137.65';
     this.setIp();
   }
 
   setIp = async (ip) => {
     const response = await searchIp(ip);
+    // eslint-disable-next-line no-alert
     if (response.status === 'fail') return alert(`An error has occured: ${response.message}\nPlease try again`);
     this.setState({ ip: response });
     return response;
@@ -39,13 +32,10 @@ class Layout extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const { ip } = this.state;
     return (
-      <div className="Layout">
-        <img id="desktop" src={desktopDesign} alt="desktop-design preview" />
-        <img id="mobile" src={mobileDesign} alt="desktop-design preview" />
-        <div className="header">
+      <div className="Layout flex-by-column">
+        <div className="header flex-by-column">
           <span className="title">IP Address Tracker</span>
           <SearchBar onSearch={this.onSearchHandler} />
         </div>

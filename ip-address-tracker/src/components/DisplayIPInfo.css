@@ -1,4 +1,4 @@
-.position-displayIpInfo {
+.DisplayIPInfo--position {
   position: absolute;
   top: 200px;
   z-index: 1;
@@ -6,8 +6,6 @@
 
 .DisplayIPInfo {
   display: flex;
-  align-items: stretch;
-  justify-content: stretch;
   max-width: 1110px;
   min-height: 160px;
   border-radius: 15px;
@@ -18,8 +16,6 @@
 
 .DisplayIPInfo .ipInfo {
   flex: 0 0 25%;
-  display: flex;
-  flex-direction: column;
   border-right: 1px solid var(--dark-gray);
   padding: 0 32px;
   word-break: break-word;
@@ -28,7 +24,7 @@
   border-right: 0;
 }
 
-.DisplayIPInfo .ipInfo .title {
+.DisplayIPInfo .ipInfo__title {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 13px;
@@ -36,7 +32,7 @@
   color: var(--dark-gray);
 }
 
-.DisplayIPInfo .ipInfo .content {
+.DisplayIPInfo .ipInfo__content {
   margin: 15px 0 0 0;
   font-weight: 500;
   font-size: 25px;
@@ -45,11 +41,11 @@
 
 @media (max-width: 880px) {
   .DisplayIPInfo {
+    flex-direction: column;
     min-width: unset;
     max-width: 555px;
     width: calc(100vw - 25px - 25px);
     top: 170px;
-    flex-direction: column;
     text-align: center;
     padding: 25px 30px 5px 30px;
   }
@@ -57,10 +53,10 @@
     margin-bottom: 20px;
     border: 0;
   }
-  .DisplayIPInfo .ipInfo .title {
+  .DisplayIPInfo .ipInfo__title {
     font-size: 10px;
   }
-  .DisplayIPInfo .ipInfo .content {
+  .DisplayIPInfo .ipInfo__content {
     font-size: 20px;
     margin: 5px;
   }

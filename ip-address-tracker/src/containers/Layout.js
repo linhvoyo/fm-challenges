@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar';
 import DisplayIPInfo from '../components/DisplayIPInfo';
 
 import { searchIp } from '../api';
+import getStateAbbreviation from '../utils/getStateAbbreviation';
 import './Layout.css';
 
 class Layout extends React.Component {
@@ -43,8 +44,15 @@ class Layout extends React.Component {
         {!ip ? null
           : (
             <>
-              <DisplayIPInfo ipQuery={ip} />
-              <IPMap ips={[ip]} />
+              <DisplayIPInfo
+                ip={ip.ip}
+                city={ip.city}
+                state={getStateAbbreviation(ip.state_prov)}
+                zipcode={ip.zipcode}
+                isp={ip.isp}
+                region={ip.time_zone.name}
+              />
+              <IPMap ips={[{ lat: Number(ip.latitude), lng: Number(ip.longitude) }]} />
             </>
           )}
       </div>

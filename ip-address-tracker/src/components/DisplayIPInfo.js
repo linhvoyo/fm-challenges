@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment-timezone';
 
 import './DisplayIPInfo.css';
 import getStateAbbreviation from '../utils/getStateAbbreviation';
@@ -12,17 +13,13 @@ const IPInfo = ({ header, data }) => (
 );
 
 const DisplayIPInfo = ({ ipQuery }) => {
-  const parseIP = (ip) => {
-    const sign = ip.time_zone.offset < 0 ? '-' : '';
-    const offset = Math.abs(ip.time_zone.offset).toString().padStart(2, '0');
+  const parseIP = (ip) => ({
+    'ip address': ip.ip,
+    location: `${ip.city}, ${getStateAbbreviation(ip.state_prov)} ${ip.zipcode}`,
+    timezone: `UTC ${moment.tz(ip.time_zone.name).format('Z')}`,
+    isp: ip.isp,
+  });
 
-    return {
-      'ip address': ip.ip,
-      location: `${ip.city}, ${getStateAbbreviation(ip.state_prov)} ${ip.zipcode}`,
-      timezone: `UTC ${sign}${offset}:00`,
-      isp: ip.isp,
-    };
-  };
   const ipData = parseIP(ipQuery);
   return (
     <div className="DisplayIPInfo--position">

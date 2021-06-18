@@ -17,42 +17,19 @@
   --darker-grayish-blue: hsl(237, 12%, 33%);
 }
 
-body {
-  background: var(--background-color);
-  font-family: var(--font-family);
-  font-size: var(--font-size);
-}
-
 .main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: var(--background-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
   align-items: center;
   padding: 15px;
   min-height: 100vh;
 }
 
-.hide-overflow {
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
 /* PAGE STYLES */
-#desktop {
-  position: absolute;
-  top: -4px;
-  left: -65px;
-  opacity: 80%;
-}
-
-#mobile {
-  position: absolute;
-  top: -23px;
-  left: 247px;
-  opacity: 80%;
-}
-
 #card {
   display: flex;
   flex-direction: row;
@@ -62,17 +39,19 @@ body {
   border-radius: 25px;
   box-shadow: 0 40px 30px -20px rgb(0 0 0 / 30%);
 }
-
 #card #illustration .mobile {
   display: none;
 }
-
 #card #illustration {
   width: 50%;
 }
+#card #illustration .desktop--hide-overflow,
 #card #illustration .desktop {
   position: relative;
   height: 100%;
+}
+#card #illustration .desktop--hide-overflow {
+  overflow: hidden;
 }
 #card #illustration .desktop #desktop-woman-svg {
   position: absolute;
@@ -102,13 +81,11 @@ body {
   width: 50%;
   padding: 70px 17px 70px 64px;
 }
-
 #card #faq h1 {
   font-size: 2.7em;
   color: var(--darker-grayish-blue);
   margin-bottom: 25px;
 }
-
 #card #faq details {
   padding: 17px 0;
   border-bottom: 1px solid var(--dividers-color);
@@ -121,6 +98,11 @@ body {
   cursor: pointer;
   list-style: none;
   font-size: 14px;
+  background: 100% 50% no-repeat url("./images/icon-arrow-down.svg");
+  outline: none;
+}
+#card #faq details > summary::-webkit-details-marker {
+  display: none;
 }
 #card #faq details img {
   margin: 4px;
@@ -129,7 +111,6 @@ body {
   margin-top: 15px;
   line-height: 1.3em;
 }
-
 #card #faq details[open] span {
   color: var(--darker-grayish-blue);
   font-weight: bold;
@@ -169,7 +150,6 @@ body {
     height: 120px;
     padding-left: 10px;
   }
-
   #card #illustration .mobile #mobile-woman-svg {
     position: relative;
     top: -108px;

@@ -1,6 +1,4 @@
 .SearchBar {
-  border-radius: 15px;
-  overflow: hidden;
   max-width: 555px;
   width: calc(100vw - 25px - 25px);
   height: 60px;
@@ -8,23 +6,27 @@
 }
 
 .SearchBar input {
+  border: transparent;
+  border-radius: 15px 0 0 15px;
   padding: 25px;
   height: 100%;
   width: 100%;
   font-size: var(--text-input-size);
   font-family: "Rubik", sans-serif;
+  background-color: white;
 }
 .SearchBar input:focus {
   outline: none;
 }
 
 .SearchBar button {
+  border-radius: 0 15px 15px 0;
+  border: 0;
   background-repeat: no-repeat;
   background-size: 10px;
   background-position: center;
   background-image: url("../asset/images/icon-arrow.svg");
   background-color: black;
-  border: 0;
   width: 63px;
 }
 .SearchBar button:hover {

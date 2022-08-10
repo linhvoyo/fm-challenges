@@ -1,8 +1,8 @@
-name: Deploy
+name: Testing
 
 on:
   push:
-    branches: [ main ]
+    branches: [ testing ]
   workflow_dispatch:
 
 permissions: read-all
@@ -10,38 +10,25 @@ permissions: read-all
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
+    runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-        token: ${{ secrets.TOKEN }}
+    - name: install jpeg
+      run: brew install jpeg libtiff
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-      
-    - name: Build ip-address-tracker
-      env:
-        REACT_APP_MAP_API_KEY: ${{ secrets.IP_TRACKER_KEY }}
-        REACT_APP_IP_GEO_KEY: ${{ secrets.IP_GEO_KEY }}
-      run: |
-        yarn --cwd ./ip-address-tracker
-        yarn --cwd ./ip-address-tracker build
-    
-    - name: Push to a new branch
-      env:
-        TOKEN: ${{secrets.TOKEN}}
-        BRANCH: gh-pages
-      run: |
-        git config --local user.email "linhvoyo@ymail.com"
-        git config --local user.name "linhvoyo"
-        git status
-        git checkout -b ${BRANCH}
-        git add .
-        git commit -m 'Add build'
-        git push https://${TOKEN}@github.com/linhvoyo/fm-challenges.git ${BRANCH} -f
+    - name: get jpeg
+      run: ls /usr/local/opt
+
+    - name: jpeg
+      run: ls /usr/local/opt/jpeg/lib
+   
+    - name: jpeg-turbo
+      run: ls /usr/local/opt/jpeg-turbo/lib
+
+    - name: jpeg-xl
+      run: ls /usr/local/opt/jpeg-xl/lib
+
+    - name: libjpeg-turbo
+      run: ls /usr/local/opt/libjpeg-turbo/lib
+
+    - name: openjpeg
+      run: ls /usr/local/opt/openjpeg/lib
